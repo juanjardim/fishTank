@@ -1,0 +1,45 @@
+﻿@model fishTankApp.ViewModels.DashboardViewModel
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>Dashboard</h1>
+        </div>
+    </div>
+    <div class="row">
+        @Html.DisplayFor(m => m.WaterTemperatureTitle)
+        @Html.DisplayFor(m => m.FishMotionTitle)
+        @Html.DisplayFor(m => m.WaterOpacityTitle)
+        @Html.DisplayFor(m => m.LightIntensityTitle)
+    </div>
+    <div class="col-lg-6 col-md-12">
+        <div class="pane panel-info">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <label asp-for="FoodAmount"></label>
+                        <span class="small">
+                            <label asp-for="LastFed"></label>
+                            @Model.LastFed
+                        </span>
+                    </div>
+                    <form asp-controller="Home" asp-action="Feed" method="post">
+                        <div class="col-xs-3">
+                            <input asp-for="FoodAmount" class="form-control input-lg"
+                                   type="number"/>
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="center">
+                                <button type="submit" class="btn btn-primary input-lg"
+                                        style="width: 100%">
+                                    Feed!
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Component.Invoke("Alert")
+</div>
