@@ -27,6 +27,7 @@ obj/
 TestResults/
 src/fishTankApp/bower_components/
 src/fishTankApp/node_modules/
+.vs/
 ###################
 # Web publish log #
 ###################
